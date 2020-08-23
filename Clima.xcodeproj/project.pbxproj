@@ -17,9 +17,9 @@
 		ADAA27C7231BC02C00365194 /* dark_background.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27C5231BC02B00365194 /* dark_background.pdf */; };
 		ADAA27CE231BC87F00365194 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27CD231BC87F00365194 /* README.md */; };
 		B4747ECA24F2CA080019F4F1 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4747EC924F2CA080019F4F1 /* WeatherManager.swift */; };
-		B4747ECC24F2CA340019F4F1 /* PrivateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4747ECB24F2CA340019F4F1 /* PrivateService.swift */; };
 		B4747ECE24F2CC840019F4F1 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4747ECD24F2CC840019F4F1 /* WeatherData.swift */; };
 		B4747ED024F2CD050019F4F1 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4747ECF24F2CD050019F4F1 /* Weather.swift */; };
+		B4B1631524F2FDA900B2F88D /* SecretService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B1631424F2FDA900B2F88D /* SecretService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +35,9 @@
 		ADAA27C5231BC02B00365194 /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dark_background.pdf; sourceTree = "<group>"; };
 		ADAA27CD231BC87F00365194 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B4747EC924F2CA080019F4F1 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
-		B4747ECB24F2CA340019F4F1 /* PrivateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateService.swift; sourceTree = "<group>"; };
 		B4747ECD24F2CC840019F4F1 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		B4747ECF24F2CD050019F4F1 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		B4B1631424F2FDA900B2F88D /* SecretService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				B4747EC924F2CA080019F4F1 /* WeatherManager.swift */,
-				B4747ECB24F2CA340019F4F1 /* PrivateService.swift */,
 				B4747ECD24F2CC840019F4F1 /* WeatherData.swift */,
 				B4747ECF24F2CD050019F4F1 /* Weather.swift */,
+				B4B1631424F2FDA900B2F88D /* SecretService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,10 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAA27B5231BBFAF00365194 /* WeatherViewController.swift in Sources */,
-				B4747ECC24F2CA340019F4F1 /* PrivateService.swift in Sources */,
 				ADAA27B1231BBFAF00365194 /* AppDelegate.swift in Sources */,
 				B4747ECA24F2CA080019F4F1 /* WeatherManager.swift in Sources */,
 				B4747ECE24F2CC840019F4F1 /* WeatherData.swift in Sources */,
+				B4B1631524F2FDA900B2F88D /* SecretService.swift in Sources */,
 				ADAA27B3231BBFAF00365194 /* SceneDelegate.swift in Sources */,
 				B4747ED024F2CD050019F4F1 /* Weather.swift in Sources */,
 			);

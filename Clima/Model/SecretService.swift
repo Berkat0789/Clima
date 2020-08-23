@@ -1,5 +1,5 @@
 //
-//  PrivateService.swift
+//  SecretService.swift
 //  Clima
 //
 //  Created by Berkat Bhatti on 8/23/20.
@@ -9,7 +9,6 @@
 import Foundation
 
 
-
-struct PrivateServive {
-    static let apiKEy = "94575f2b659527a9f2e2d58b8a2c7044"
+struct SecretService {
+        static let apiKEy = "94575f2b659527a9f2e2d58b8a2c7044"
 }
