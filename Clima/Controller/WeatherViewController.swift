@@ -16,16 +16,64 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var weatherCondition: UILabel!
-  
+    
     
     var service = WeatherManager()
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextField.delegate = self
+        service.delegate = self
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         
-        service.getWeatherDatafor(cityName: "London")
-        
+    }
+    
+    
+    @IBAction func locaitonButtonPressed(_ sender: Any) {
+        locationManager.requestLocation()
     }
 }
 
+//MARK: - Extensions for protocol use
 
+extension WeatherViewController: weatherDelegate {
+    func didReceiveWeatherData(weather: Weather) {
+        DispatchQueue.main.async {
+            self.cityLabel.text = weather.cityName
+            self.temperatureLabel.text = weather.tempString
+            self.weatherCondition.text = weather.description
+            self.conditionImageView.image = UIImage(systemName: weather.setWeatherImage)
+        }
+    }
+}
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
+        let userLocaiton = locations[0]
+        service.getWeatherDataFor(location: userLocaiton.coordinate)
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("HEre is the error getting the data \(error)")
+    }
+}
+
+extension WeatherViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let cityName = searchTextField.text {
+            service.getWeatherDatafor(cityName: cityName)
+            searchTextField.text = ""
+        }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let cityName = searchTextField.text {
+            service.getWeatherDatafor(cityName: cityName)
+            searchTextField.text = ""
+        }
+        return true
+    }
+}

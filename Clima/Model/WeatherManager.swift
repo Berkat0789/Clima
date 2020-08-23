@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 // Protocol to pass data
 protocol weatherDelegate {
@@ -18,9 +19,15 @@ struct WeatherManager {
     var delegate: weatherDelegate?
     
     func getWeatherDatafor(cityName: String) {
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(PrivateServive.apiKEy)"
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(PrivateServive.apiKEy)&units=imperial"
         fetchWeatherDatafor(url: url)
         print(url)
+    }
+    
+    func getWeatherDataFor(location: CLLocationCoordinate2D) {
+        let locaitonURL = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.latitude)&lon=\(location.longitude)&appid=\(PrivateServive.apiKEy)&units=imperial"
+        print(locaitonURL)
+        fetchWeatherDatafor(url: locaitonURL)
     }
     func fetchWeatherDatafor(url: String) {
         guard let url = URL(string: url) else {return}
@@ -35,7 +42,9 @@ struct WeatherManager {
                 if let returnedData = data {
                     let dataString = String(data: returnedData, encoding: String.Encoding.utf8)
                     print("\(dataString!)")
-                    self.delegate?.didReceiveWeatherData(weather: self.decodeWeatherData(data: returnedData)!)
+                    if let weather = self.decodeWeatherData(data: returnedData) {
+                        self.delegate?.didReceiveWeatherData(weather: weather)
+                    }
                 }
             }
         }
